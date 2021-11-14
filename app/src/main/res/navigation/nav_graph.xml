@@ -11,9 +11,24 @@
         <action
             android:id="@+id/action_tasksScreen_to_taskDetailsScreen"
             app:destination="@id/taskDetailsScreen" />
+        <action
+            android:id="@+id/action_tasksScreen_to_createTask"
+            app:destination="@id/createTask" />
     </fragment>
     <fragment
         android:id="@+id/taskDetailsScreen"
         android:name="com.example.todolist.TaskDetailsScreen"
-        android:label="TaskDetailsScreen" />
+        android:label="TaskDetailsScreen" >
+        <action
+            android:id="@+id/action_taskDetailsScreen_to_tasksScreen"
+            app:destination="@id/tasksScreen" />
+    </fragment>
+    <dialog
+        android:id="@+id/createTask"
+        android:name="com.example.todolist.CreateTask"
+        android:label="CreateTask" >
+        <action
+            android:id="@+id/action_createTask_to_tasksScreen"
+            app:destination="@id/tasksScreen" />
+    </dialog>
 </navigation>

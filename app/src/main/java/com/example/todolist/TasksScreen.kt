@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.todolist.databinding.TasksScreenBinding
 
 
 class TasksScreen : Fragment() {
+
     private var _binding: TasksScreenBinding? = null
     val binding get() = _binding
 
@@ -28,7 +31,11 @@ class TasksScreen : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
+        binding?.apply {
+            taskScreenFragment = this@TasksScreen
+            lifecycleOwner = viewLifecycleOwner
+        }
     }
 
 
@@ -45,5 +52,11 @@ class TasksScreen : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
+
+    fun goToNextScreen() {
+        findNavController().navigate(R.id.action_tasksScreen_to_createTask)
+
+    }
+
 
 }

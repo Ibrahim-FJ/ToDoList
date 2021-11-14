@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ibrah/Desktop/Tuwaiq/Android/ToDoList/app/src/main/res/layout/activity_main.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/ibrah/Desktop/Tuwaiq/Android/ToDoList/app/src/main/res/layout/task_details_screen.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/ibrah/Desktop/Tuwaiq/Android/ToDoList/app/src/main/res/layout/task_item.xml" value="0.2074074074074074" />
+        <entry key="..\:/Users/ibrah/Desktop/Tuwaiq/Android/ToDoList/app/src/main/res/layout/tasks_screen.xml" value="0.2" />
+        <entry key="..\:/Users/ibrah/Desktop/Tuwaiq/Android/ToDoList/app/src/main/res/menu/tasks_sceen_menu.xml" value="0.2074074074074074" />
       </map>
     </option>
   </component>

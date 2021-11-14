@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-
+import com.google.android.material.datepicker.MaterialDatePicker
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.fragment_container_mainActivity) as NavHostFragment
         navController = navHostFragment.navController
         setupActionBarWithNavController(navController)
+
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

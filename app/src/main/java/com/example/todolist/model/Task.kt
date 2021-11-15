@@ -1,11 +1,10 @@
 package com.example.todolist.model
 
-import java.util.*
 
 data class Task(
                 var taskTitle: String,
-                var taskDate: Date,
-                var isRead: Boolean,
+                var taskDate: String,
+                var isCompleted: Boolean,
                 var isFavorite: Boolean
                 )
 

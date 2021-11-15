@@ -49,6 +49,9 @@ class CreateTask : BottomSheetDialogFragment() {
         _binding = null
     }
 
+    /**
+     * To display the date picker on the screen
+     */
     fun showDatePicker() {
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
@@ -57,16 +60,21 @@ class CreateTask : BottomSheetDialogFragment() {
         datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
 
-            convertMillisecondsToReadableDate(it)
+            convertMillisecondsToReadableDate(it, "EEE, MMM d ")
 
         }
 
     }
 
+    /**
+     * function to convert date in milliseconds to readable date at the format "EEE, MMM d ", for example "Tue, Sep 10 "
+     * @param dateMilliseconds: Long
+     * @param datePattern: String
+     * @return formattedDate: String
+     */
 
-
-    private fun convertMillisecondsToReadableDate (dateMilliseconds: Long): String{
-        val format = SimpleDateFormat("EEE, MMM d ", Locale.getDefault())
+    private fun convertMillisecondsToReadableDate (dateMilliseconds: Long, datePattern: String): String{
+        val format = SimpleDateFormat(datePattern, Locale.getDefault())
         return format.format(Date(dateMilliseconds))
     }
 

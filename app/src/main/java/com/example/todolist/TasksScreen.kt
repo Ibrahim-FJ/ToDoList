@@ -7,7 +7,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.todolist.adapter.TasksAdapter
 import com.example.todolist.databinding.TasksScreenBinding
+import com.example.todolist.model.Task
 
 
 class TasksScreen : Fragment() {
@@ -32,10 +34,15 @@ class TasksScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+
         binding?.apply {
             taskScreenFragment = this@TasksScreen
             lifecycleOwner = viewLifecycleOwner
         }
+
+        binding?.tasksRecyclerView?.adapter = TasksAdapter(this.context)
+        binding?.tasksRecyclerView?.setHasFixedSize(true)
+
     }
 
 

@@ -22,7 +22,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:onClickListener="@{() -> taskScreenFragment.goToNextScreen()}"
+            android:onClickListener="@{() -> taskScreenFragment.goToCreateTask()}"
             android:src="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

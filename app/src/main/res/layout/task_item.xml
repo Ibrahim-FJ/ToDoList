@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item_in_recyclerView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
 
-
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/isCompleted_checkBox"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="13dp"
-        app:layout_constraintEnd_toStartOf="@+id/task_date_task_screen_textView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:button="@drawable/custom_check_box_completed_task"/>
+        android:padding="8dp"
+       >
 
-    <TextView
-        android:id="@+id/task_title_task_screen_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        app:layout_constraintStart_toStartOf="@+id/task_date_task_screen_textView"
-        app:layout_constraintTop_toTopOf="@+id/isCompleted_checkBox" />
 
-    <TextView
-        android:id="@+id/task_date_task_screen_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="185dp"
-        app:layout_constraintEnd_toStartOf="@+id/isFavorite_checkBox"
-        app:layout_constraintStart_toEndOf="@+id/isCompleted_checkBox"
-        app:layout_constraintTop_toBottomOf="@+id/task_title_task_screen_textView" />
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/isCompleted_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:button="@drawable/custom_check_box_completed_task"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/isFavorite_checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/task_date_task_screen_textView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:button="@drawable/custom_check_box_important"/>
+        <TextView
+            android:id="@+id/task_title_task_screen_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Task Tiltle"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/isCompleted_checkBox"
+            app:layout_constraintTop_toTopOf="@+id/isCompleted_checkBox" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/task_date_task_screen_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Text Date"
+            app:layout_constraintBottom_toBottomOf="@+id/isCompleted_checkBox"
+            app:layout_constraintStart_toStartOf="@+id/task_title_task_screen_textView"
+            app:layout_constraintTop_toBottomOf="@+id/task_title_task_screen_textView" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/isFavorite_checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:button="@drawable/custom_check_box_important"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

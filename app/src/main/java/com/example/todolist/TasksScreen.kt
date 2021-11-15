@@ -40,7 +40,7 @@ class TasksScreen : Fragment() {
             lifecycleOwner = viewLifecycleOwner
         }
 
-        binding?.tasksRecyclerView?.adapter = TasksAdapter(this.context)
+        binding?.tasksRecyclerView?.adapter = TasksAdapter(this.context, view)
         binding?.tasksRecyclerView?.setHasFixedSize(true)
 
     }
@@ -60,10 +60,13 @@ class TasksScreen : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun goToNextScreen() {
+    fun goToCreateTask() {
         findNavController().navigate(R.id.action_tasksScreen_to_createTask)
 
     }
+
+
+
 
 
 }

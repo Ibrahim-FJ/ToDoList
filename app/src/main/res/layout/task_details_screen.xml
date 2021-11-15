@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,6 +12,90 @@
         android:layout_height="match_parent"
         tools:context=".TaskDetailsScreen">
 
+        <CheckBox
+            android:id="@+id/competed_check_box_derails_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:button="@drawable/custom_check_box_completed_task"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_title_details_screen"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toBottomOf="@+id/competed_check_box_derails_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/competed_check_box_derails_screen"
+            app:layout_constraintTop_toTopOf="@+id/competed_check_box_derails_screen"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/task_title_details_screen_text_field"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="-77dp"
+                tools:layout_editor_absoluteY="6dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_note_details_screen"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="32dp"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_date_details_screen"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/task_note_details_screen_text_field"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="start"
+                tools:ignore="SpeakableTextPresentCheck"
+                tools:layout_editor_absoluteX="-77dp"
+                tools:layout_editor_absoluteY="6dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/task_date_details_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/task_title_details_screen" />
+
+        <ImageView
+            android:id="@+id/delete_button_details_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/created_date_details_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/created_date_details_screen"
+            app:srcCompat="@drawable/ic_baseline_delete_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/created_date_details_screen"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/delete_button_details_screen"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

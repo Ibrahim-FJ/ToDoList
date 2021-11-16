@@ -26,42 +26,43 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/task_date"
-                android:layout_width="42dp"
-                android:layout_height="51dp"
+                android:id="@+id/add_date_create_task"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="8dp"
+                android:onClick="@{() -> createTaskFragment.showDatePicker()}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/task_title"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_edit_calendar_24"
-                android:onClick="@{() -> createTaskFragment.showDatePicker()}"/>
+                app:srcCompat="@drawable/ic_baseline_edit_calendar_24" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/task_title"
+                android:id="@+id/task_title_create_task_screen"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="348dp"
-                android:layout_height="wrap_content"
+                android:layout_width="287dp"
+                android:layout_height="68dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:hint="Add a task"
                 android:inputType="textMultiLine"
-                app:layout_constraintBottom_toBottomOf="@+id/task_date"
+                app:layout_constraintBottom_toBottomOf="@+id/add_date_create_task"
+                app:layout_constraintEnd_toStartOf="@+id/add_task_create_screen"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/task_date"
+                app:layout_constraintTop_toTopOf="@+id/add_date_create_task"
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/task_title_text_field"
+                    android:id="@+id/task_title_create_task_screen_text_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    app:errorEnabled="true"
                     tools:layout_editor_absoluteX="-77dp"
                     tools:layout_editor_absoluteY="6dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/task_description"
+                android:id="@+id/add_note_create_screen"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,11 +73,11 @@
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/task_title"
+                app:layout_constraintTop_toBottomOf="@id/task_title_create_task_screen"
                 tools:ignore="SpeakableTextPresentCheck">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/task_description_text_field"
+                    android:id="@+id/add_note_create_screen_text_field"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="20dp"
@@ -85,6 +86,17 @@
                     tools:layout_editor_absoluteY="6dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <ImageView
+                android:id="@+id/add_task_create_screen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="@+id/add_date_create_task"
+                app:layout_constraintEnd_toStartOf="@+id/add_date_create_task"
+                app:layout_constraintTop_toTopOf="@+id/add_date_create_task"
+                app:srcCompat="@drawable/custom_add_task_button"
+
+                android:onClick="@{()-> createTaskFragment.addTask()}"
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

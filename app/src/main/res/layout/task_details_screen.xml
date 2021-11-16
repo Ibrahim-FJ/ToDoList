@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="taskViewModel"
+            type="com.example.todolist.viewmodel.TaskViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +16,7 @@
         tools:context=".TaskDetailsScreen">
 
         <CheckBox
-            android:id="@+id/competed_check_box_derails_screen"
+            android:id="@+id/isCompleted_details_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -28,10 +31,10 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:inputType="textMultiLine"
-            app:layout_constraintBottom_toBottomOf="@+id/competed_check_box_derails_screen"
+            app:layout_constraintBottom_toBottomOf="@+id/isCompleted_details_screen"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/competed_check_box_derails_screen"
-            app:layout_constraintTop_toTopOf="@+id/competed_check_box_derails_screen"
+            app:layout_constraintStart_toEndOf="@+id/isCompleted_details_screen"
+            app:layout_constraintTop_toTopOf="@+id/isCompleted_details_screen"
             tools:ignore="SpeakableTextPresentCheck">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -41,7 +44,8 @@
                 android:layout_marginTop="20dp"
                 tools:ignore="SpeakableTextPresentCheck"
                 tools:layout_editor_absoluteX="-77dp"
-                tools:layout_editor_absoluteY="6dp" />
+                tools:layout_editor_absoluteY="6dp"
+               />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -78,23 +82,23 @@
             app:layout_constraintTop_toBottomOf="@+id/task_title_details_screen" />
 
         <ImageView
-            android:id="@+id/delete_button_details_screen"
+            android:id="@+id/delete_task_details_screen"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/created_date_details_screen"
+            app:layout_constraintBottom_toBottomOf="@+id/task_created_date_details_screen"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/created_date_details_screen"
+            app:layout_constraintTop_toTopOf="@+id/task_created_date_details_screen"
             app:srcCompat="@drawable/ic_baseline_delete_24"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/created_date_details_screen"
+            android:id="@+id/task_created_date_details_screen"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/delete_button_details_screen"
+            app:layout_constraintEnd_toStartOf="@+id/delete_task_details_screen"
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

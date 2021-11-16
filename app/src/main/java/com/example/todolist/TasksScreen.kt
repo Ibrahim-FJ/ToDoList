@@ -9,13 +9,15 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.adapter.TasksAdapter
 import com.example.todolist.databinding.TasksScreenBinding
-import com.example.todolist.model.Task
+import com.example.todolist.viewmodel.TaskViewModel
 
 
 class TasksScreen : Fragment() {
 
     private var _binding: TasksScreenBinding? = null
     val binding get() = _binding
+    private val taskViewModel: TaskViewModel by activityViewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,14 +36,15 @@ class TasksScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
         binding?.apply {
+
             taskScreenFragment = this@TasksScreen
             lifecycleOwner = viewLifecycleOwner
         }
-
-        binding?.tasksRecyclerView?.adapter = TasksAdapter(this.context, view)
-        binding?.tasksRecyclerView?.setHasFixedSize(true)
+        taskViewModel.tasks.observe(viewLifecycleOwner, {
+            binding?.tasksRecyclerView?.adapter = TasksAdapter(this.context, view, it)
+            binding?.tasksRecyclerView?.setHasFixedSize(true)
+        })
 
     }
 
@@ -64,9 +67,6 @@ class TasksScreen : Fragment() {
         findNavController().navigate(R.id.action_tasksScreen_to_createTask)
 
     }
-
-
-
 
 
 }

@@ -22,6 +22,22 @@
         <action
             android:id="@+id/action_taskDetailsScreen_to_tasksScreen"
             app:destination="@id/tasksScreen" />
+        <argument
+            android:name="taskTitle"
+            app:argType="string" />
+        <argument
+            android:name="taskDate"
+            app:argType="string" />
+        <argument
+            android:name="isCompleted"
+            app:argType="boolean" />
+        <argument
+            android:name="taskIndex"
+            app:argType="integer" />
+        <argument
+            android:name="taskCreatedDate"
+            app:argType="string" />
+
     </fragment>
     <dialog
         android:id="@+id/createTask"

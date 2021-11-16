@@ -15,17 +15,5 @@
 
     </style>
 
-    <style name="TaskTitle" parent="TextAppearance.AppCompat">
-<!--        <item name="fontFamily">sans-serif-medium</item>-->
-        <item name="android:textSize">20sp</item>
-
-    </style>
-
-    <style name="TaskDate" parent="TextAppearance.AppCompat">
-<!--        <item name="fontFamily">sans-serif-medium</item>-->
-        <item name="android:textSize">14sp</item>
-
-    </style>
-
 
 </resources>

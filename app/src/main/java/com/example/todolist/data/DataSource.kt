@@ -2,22 +2,29 @@ package com.example.todolist.data
 
 import com.example.todolist.model.Task
 
+
+    var allTasks = mutableListOf (
+        Task(
+
+            "Shopping", "21/34/121", "Hello"
+        ),
+        Task(
+            "Shoppingidnd", "21/34/121", "Ibrahim"
+        ),
+        Task(
+            "Shoppinsdg", "21/34dd/121", "Alfaifi"
+        ),
+
+    )
+
+
 object DataSource {
-    val task: List<Task> = listOf(
-        Task(
-            "Shopping", "21/34/121", false, false),
-        Task(
-            "Shoppingidnd", "21/34/121", false, false),
-        Task(
-            "Shoppinsdg", "21/34dd/121", true, false),
-        Task(
-            "Shopping", "21/34/121", false, true),
-        Task(
-            "Shoppingidnd", "21/34/121", false, false),
-        Task(
-            "Shoppinsdg", "21/34dd/121", false, false),
-        )
-
-
+    fun loadDate(): MutableList<Task> {
+        return allTasks
+    }
+//
+//    fun add(task: LiveData<List<Task>>){
+//        allTasks.add(task)
+//    }
 
 }

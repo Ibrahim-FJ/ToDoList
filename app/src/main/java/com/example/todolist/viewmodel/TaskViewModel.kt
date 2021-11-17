@@ -12,22 +12,41 @@ class TaskViewModel : ViewModel() {
         MutableLiveData(mutableListOf(Task("Ibrahim", "tue, 10, 21", "Hello")))
     val tasks get() = _tasks
 
+    /**
+     * Add task to the list
+     */
     fun addTask(newTask: Task) {
         _tasks.value?.add(newTask)
     }
 
+    /**
+     * update task into the list
+     * @param: index
+     * @param: Task Model
+     */
     fun updateTask(index: Int, updatedTask: Task) {
         try {
             _tasks.value?.set(index, updatedTask)
 
-        }catch (e: Exception){
+        } catch (e: Exception) {
             Log.d("TaskViewModel", e.message.toString())
         }
     }
 
+    /**
+     * remove task from the list at specific position
+     * @param: index
+     */
+
     fun removeTask(index: Int) {
 
-        _tasks.value?.removeAt(index)
+        try {
+            _tasks.value?.removeAt(index)
+        } catch (e: Exception) {
+            Log.d("TaskViewModel", e.message.toString())
+
+        }
+
     }
 
 }

@@ -40,30 +40,29 @@ class TasksAdapter(
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
 
         val item = dataSource[position]
+
         holder.taskTitle?.text = item.taskTitle
         holder.taskDate?.text = item.taskDate
-        if (item.isCompleted){
+        if (item.isCompleted) {
             holder.isCompleted?.isChecked = true
-            holder.taskTitle?.paintFlags = holder.taskTitle?.paintFlags!!.or(Paint.STRIKE_THRU_TEXT_FLAG)
+            holder.taskTitle?.paintFlags =
+                holder.taskTitle?.paintFlags!!.or(Paint.STRIKE_THRU_TEXT_FLAG)
         }
 
-        holder.isCompleted?.setOnClickListener{
-            if(holder.isCompleted.isChecked){
+        holder.isCompleted?.setOnClickListener {
+            if (holder.isCompleted.isChecked) {
                 item.isCompleted = true
-                holder.taskTitle?.paintFlags = holder.taskTitle?.paintFlags!!.or(Paint.STRIKE_THRU_TEXT_FLAG)
+                holder.taskTitle?.paintFlags =
+                    holder.taskTitle?.paintFlags!!.or(Paint.STRIKE_THRU_TEXT_FLAG)
 
-            } else{
+            } else {
                 item.isCompleted = false
                 holder.taskTitle?.paintFlags = 0
 
             }
 
         }
-//        holder.isCompleted?.setOnClickListener{
-               // item.isCompleted = true
-//            holder.taskTitle?.paintFlags = holder.taskTitle?.paintFlags!!.or(Paint.STRIKE_THRU_TEXT_FLAG)
-//            notifyItemChanged(position)
-//        }
+
         if (item.isFavorite) holder.isFavorite?.isChecked = true
 
         holder.listItemInRecyclerView.setOnClickListener {
@@ -72,7 +71,9 @@ class TasksAdapter(
                 taskTitle = item.taskTitle,
                 taskDate = item.taskDate,
                 isCompleted = item.isCompleted,
-                taskCreatedDate = item.taskCreatedDate
+                taskCreatedDate = item.taskCreatedDate,
+                taskDateInMilliSeconds = item.taskDateInMelliSeconds,
+                taskNote = item.taskNote
 
             )
 
@@ -85,4 +86,5 @@ class TasksAdapter(
 
 
 }
+
 

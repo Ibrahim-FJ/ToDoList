@@ -1,8 +1,10 @@
 package com.example.todolist
 
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -67,6 +69,8 @@ class TasksScreen : Fragment() {
         findNavController().navigate(R.id.action_tasksScreen_to_createTask)
 
     }
+
+
 
 
 }

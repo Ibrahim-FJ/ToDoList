@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import android.widget.Adapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolist.adapter.TasksAdapter
 import com.example.todolist.databinding.CreateTaskBinding
 import com.example.todolist.databinding.TasksScreenBinding
+import com.example.todolist.generalmethods.GeneralMethods
 import com.example.todolist.model.Task
 import com.example.todolist.viewmodel.TaskViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.datepicker.MaterialDatePicker
+import java.lang.reflect.GenericArrayType
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,12 +27,9 @@ class CreateTask : BottomSheetDialogFragment() {
 
     private var _binding: CreateTaskBinding? = null
     val binding get() = _binding
+    var taskDateInMelliSeconds: Long = 0
     var taskDate: String = ""
     private val taskViewModel: TaskViewModel by activityViewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
 
     override fun onCreateView(
@@ -48,20 +48,6 @@ class CreateTask : BottomSheetDialogFragment() {
             lifecycleOwner = viewLifecycleOwner
         }
 
-        binding?.addTaskCreateScreen?.setOnClickListener {
-            addTask()
-        }
-
-
-        if(binding?.taskTitleCreateTaskScreenTextField?.text?.isNotEmpty() == false){
-            Toast.makeText(this.requireContext(), "isNotEmpty", Toast.LENGTH_SHORT).show()
-//            binding!!.addTaskCreateScreen.isClickable = false
-//            binding!!.addTaskCreateScreen.setImageResource(R.drawable.ic_baseline_add_box_24)
-        } else {
-            Toast.makeText(this.requireContext(), "isEmpty", Toast.LENGTH_SHORT).show()
-//            binding!!.addTaskCreateScreen.setImageResource(R.drawable.ic_baseline_add_box_24_blue)
-
-        }
 
     }
 
@@ -70,6 +56,34 @@ class CreateTask : BottomSheetDialogFragment() {
         super.onDestroy()
         _binding = null
     }
+
+
+    fun addTask() {
+        if (binding?.taskTitleCreateTaskScreenTextField?.text?.isNotEmpty() == true) {
+            println(taskDate)
+
+
+            val taskTitle = binding?.taskTitleCreateTaskScreenTextField?.text.toString()
+            val taskNote = binding?.addNoteCreateScreenTextField?.text.toString()
+            val taskCreatedDate = GeneralMethods().convertMillisecondsToReadableDate(
+                Calendar.getInstance().timeInMillis,
+                "EEE, MMM d "
+            )
+            taskViewModel.addTask(
+                Task(
+                    taskTitle,
+                    taskDate,
+                    taskNote,
+                    taskCreatedDate = taskCreatedDate,
+                    taskDateInMelliSeconds = taskDateInMelliSeconds
+                )
+            )
+            Toast.makeText(this.requireContext(), "Added Task", Toast.LENGTH_SHORT).show()
+            binding!!.taskTitleCreateTaskScreenTextField.clearFocus()
+        }
+
+    }
+
 
     /**
      * To display the date picker on the screen
@@ -83,12 +97,13 @@ class CreateTask : BottomSheetDialogFragment() {
 
         datePicker.show(parentFragmentManager, "DatePicker")
         datePicker.addOnPositiveButtonClickListener {
-
+            taskDateInMelliSeconds = it
             taskDate = convertMillisecondsToReadableDate(it, "EEE, MMM d ")
 
         }
 
     }
+
 
     /**
      * function to convert date in milliseconds to readable date at the format "EEE, MMM d ", for example "Tue, Sep 10 "
@@ -97,28 +112,13 @@ class CreateTask : BottomSheetDialogFragment() {
      * @return formattedDate: String
      */
 
-    private fun convertMillisecondsToReadableDate(
+
+    fun convertMillisecondsToReadableDate(
         dateMilliseconds: Long,
         datePattern: String
     ): String {
         val format = SimpleDateFormat(datePattern, Locale.getDefault())
         return format.format(Date(dateMilliseconds))
     }
-
-    fun addTask() {
-        if (binding?.taskTitleCreateTaskScreenTextField?.text?.isNotEmpty() == true){
-
-            val taskTitle = binding?.taskTitleCreateTaskScreenTextField?.text.toString()
-            val taskNote = binding?.addNoteCreateScreenTextField?.text.toString()
-            val taskCreatedDate = convertMillisecondsToReadableDate(Calendar.getInstance().timeInMillis, "EEE, MMM d ")
-            taskViewModel.addTask(Task(taskTitle, taskDate, taskNote, taskCreatedDate = taskCreatedDate))
-            Toast.makeText(this.requireContext(), "Added Task", Toast.LENGTH_SHORT).show()
-        }else {
-
-        }
-
-
-    }
-
 
 }

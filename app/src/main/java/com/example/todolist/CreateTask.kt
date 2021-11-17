@@ -104,7 +104,7 @@ class CreateTask : BottomSheetDialogFragment() {
      */
 
 
-    fun convertMillisecondsToReadableDate(
+    private fun convertMillisecondsToReadableDate(
         dateMilliseconds: Long,
         datePattern: String
     ): String {

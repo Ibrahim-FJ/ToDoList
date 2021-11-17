@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Tasks</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="task_date_comparsion">The task date has been passed</string>
+    <string name="add_a_task">Add task</string>
+    <string name="add_note">Add note</string>
 </resources>

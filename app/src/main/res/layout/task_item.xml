@@ -33,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="Task Tiltle"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/isCompleted_checkBox"
             app:layout_constraintTop_toTopOf="@+id/isCompleted_checkBox" />
@@ -43,7 +42,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Text Date"
             app:layout_constraintBottom_toBottomOf="@+id/isCompleted_checkBox"
             app:layout_constraintStart_toStartOf="@+id/task_title_task_screen_textView"
             app:layout_constraintTop_toBottomOf="@+id/task_title_task_screen_textView" />

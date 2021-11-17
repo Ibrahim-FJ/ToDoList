@@ -54,12 +54,12 @@ class TaskDetailsScreen : Fragment() {
         }
 
         binding?.taskTitleDetailsScreenTextField?.setText(taskTitle)
-        binding?.taskDateDetailsScreen?.setText(taskDate)
+        binding?.taskDateDetailsScreen?.text = taskDate
         binding?.taskNoteDetailsScreenTextField?.setText(taskNote)
         binding?.isCompletedDetailsScreen?.isChecked = taskIsCompleted == true
         checkTaskDatePassed(taskDateInMilliSeconds)
         binding?.taskCreatedDateDetailsScreen?.text = taskCreatedDate
-        binding?.taskDateDetailsScreen?.setText(taskDate)
+        binding?.taskDateDetailsScreen?.text = taskDate
 
         binding?.deleteTaskDetailsScreen?.setOnClickListener {
             removeTask(taskIndexToUpdate!!)
@@ -108,7 +108,7 @@ class TaskDetailsScreen : Fragment() {
      * Function to remove task from the list
      * @param: index
      */
-    fun removeTask(index: Int) {
+    private fun removeTask(index: Int) {
         taskViewModel.removeTask(index)
     }
 
@@ -118,7 +118,7 @@ class TaskDetailsScreen : Fragment() {
     private fun checkTaskDatePassed(taskDateInMilliSeconds: Long) {
         if (Calendar.getInstance().timeInMillis > taskDateInMilliSeconds) {
             binding?.dataPassedMsgDetailsScreen?.visibility = View.VISIBLE
-            binding?.dataPassedMsgDetailsScreen?.text = "The task date has been passed"
+            binding?.dataPassedMsgDetailsScreen?.text = getString(R.string.task_date_comparsion)
         }
 
     }
@@ -126,7 +126,7 @@ class TaskDetailsScreen : Fragment() {
     /**
      * To display the date picker on the screen
      */
-    fun showDatePicker() {
+    private fun showDatePicker() {
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText("Select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds())
@@ -136,7 +136,7 @@ class TaskDetailsScreen : Fragment() {
         datePicker.addOnPositiveButtonClickListener {
             taskDateInMilliSeconds = it
             taskDate = convertMillisecondsToReadableDate(it, "EEE, MMM d ")
-            binding?.taskDateDetailsScreen?.setText(taskDate)
+            binding?.taskDateDetailsScreen?.text = taskDate
 
 
         }
@@ -151,7 +151,7 @@ class TaskDetailsScreen : Fragment() {
      * @return formattedDate: String
      */
 
-    fun convertMillisecondsToReadableDate(
+    private fun convertMillisecondsToReadableDate(
         dateMilliseconds: Long,
         datePattern: String
     ): String {

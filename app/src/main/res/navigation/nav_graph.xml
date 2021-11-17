@@ -53,4 +53,8 @@
             android:id="@+id/action_createTask_to_tasksScreen"
             app:destination="@id/tasksScreen" />
     </dialog>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.todolist.MainActivity"
+        android:label="MainActivity" />
 </navigation>

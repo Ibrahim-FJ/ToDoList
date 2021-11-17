@@ -5,17 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import com.example.todolist.databinding.TaskDetailsScreenBinding
-import com.example.todolist.generalmethods.GeneralMethods
 import com.example.todolist.model.Task
 import com.example.todolist.viewmodel.TaskViewModel
 import com.google.android.material.datepicker.MaterialDatePicker
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -4,21 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.RecyclerView
-import com.example.todolist.adapter.TasksAdapter
 import com.example.todolist.databinding.CreateTaskBinding
-import com.example.todolist.databinding.TasksScreenBinding
-import com.example.todolist.generalmethods.GeneralMethods
 import com.example.todolist.model.Task
 import com.example.todolist.viewmodel.TaskViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.datepicker.MaterialDatePicker
-import java.lang.reflect.GenericArrayType
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -60,12 +53,10 @@ class CreateTask : BottomSheetDialogFragment() {
 
     fun addTask() {
         if (binding?.taskTitleCreateTaskScreenTextField?.text?.isNotEmpty() == true) {
-            println(taskDate)
-
 
             val taskTitle = binding?.taskTitleCreateTaskScreenTextField?.text.toString()
             val taskNote = binding?.addNoteCreateScreenTextField?.text.toString()
-            val taskCreatedDate = GeneralMethods().convertMillisecondsToReadableDate(
+            val taskCreatedDate = convertMillisecondsToReadableDate(
                 Calendar.getInstance().timeInMillis,
                 "EEE, MMM d "
             )

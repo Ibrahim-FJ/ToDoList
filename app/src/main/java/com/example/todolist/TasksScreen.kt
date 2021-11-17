@@ -1,10 +1,8 @@
 package com.example.todolist
 
 
-import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -48,6 +46,7 @@ class TasksScreen : Fragment() {
             binding?.tasksRecyclerView?.setHasFixedSize(true)
         })
 
+
     }
 
 
@@ -57,20 +56,9 @@ class TasksScreen : Fragment() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.tasks_sceen_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
-    }
-
     fun goToCreateTask() {
         findNavController().navigate(R.id.action_tasksScreen_to_createTask)
 
     }
-
-
-
 
 }

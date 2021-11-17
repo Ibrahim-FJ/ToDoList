@@ -7,7 +7,7 @@ data class Task(
     var taskNote: String = "",
     var taskCreatedDate: String = "",
     var isCompleted: Boolean = false,
-    var isFavorite: Boolean = false,
+    var isImportant: Boolean = false,
     var taskDateInMelliSeconds: Long = 0
 
 )

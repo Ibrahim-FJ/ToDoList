@@ -130,7 +130,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/task_date_details_screen"
             app:layout_constraintStart_toEndOf="@+id/task_date_details_screen"
             app:layout_constraintTop_toTopOf="@+id/task_date_details_screen"
-            app:srcCompat="@drawable/custom_add_task_button"
+            app:srcCompat="@drawable/ic_baseline_edit_calendar_24"
             />
 
 

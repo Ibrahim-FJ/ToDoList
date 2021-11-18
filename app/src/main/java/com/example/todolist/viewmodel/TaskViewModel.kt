@@ -22,6 +22,7 @@ class TaskViewModel : ViewModel() {
         )
     val tasks get() = _tasks
 
+
     /**
      * Add task to the list
      */

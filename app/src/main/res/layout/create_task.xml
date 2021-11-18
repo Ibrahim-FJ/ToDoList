@@ -96,6 +96,7 @@
                 app:layout_constraintTop_toTopOf="@+id/add_date_create_task"
                 app:srcCompat="@drawable/custom_add_task_button"
                 android:onClick="@{()-> createTaskFragment.addTask()}"
+
                 />
 
 

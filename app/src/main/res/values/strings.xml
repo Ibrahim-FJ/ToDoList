@@ -4,4 +4,5 @@
     <string name="task_date_comparsion">The task date has been passed</string>
     <string name="add_a_task">Add task</string>
     <string name="add_note">Add note</string>
+    <string name="please_add_task">Please add task</string>
 </resources>

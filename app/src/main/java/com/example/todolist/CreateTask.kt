@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.todolist.databinding.CreateTaskBinding
 import com.example.todolist.model.Task
 import com.example.todolist.viewmodel.TaskViewModel
@@ -71,6 +73,7 @@ class CreateTask : BottomSheetDialogFragment() {
             )
             Toast.makeText(this.requireContext(), "Added Task", Toast.LENGTH_SHORT).show()
             binding!!.taskTitleCreateTaskScreenTextField.clearFocus()
+            findNavController().navigate(R.id.action_createTask_to_tasksScreen)
         }
 
     }

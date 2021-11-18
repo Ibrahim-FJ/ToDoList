@@ -11,7 +11,15 @@ import java.lang.Exception
 class TaskViewModel : ViewModel() {
 
     private var _tasks: MutableLiveData<MutableList<Task>> =
-        MutableLiveData(mutableListOf(Task("Ibrahim", "tue, 10, 21", "Hello")))
+        MutableLiveData(
+            mutableListOf(
+                Task(
+                    "Android Development",
+                    "thu, Nov, 18",
+                    "Learning about Database"
+                )
+            )
+        )
     val tasks get() = _tasks
 
     /**

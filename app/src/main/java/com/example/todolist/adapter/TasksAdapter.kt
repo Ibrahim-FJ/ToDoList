@@ -47,6 +47,14 @@ class TasksAdapter(
         holder.taskTitle?.text = item.taskTitle
         holder.taskDate?.text = item.taskDate
 
+        if (item.isCompleted) {
+            holder.isCompleted?.isChecked = true
+            holder.taskTitle?.paintFlags =
+                holder.taskTitle?.paintFlags!!.or(Paint.STRIKE_THRU_TEXT_FLAG)
+        }
+
+        if (item.isImportant) holder.isImportant?.isChecked = true
+
 // change the position of the important tasks
         holder.isCompleted?.setOnClickListener {
             if (holder.isCompleted.isChecked) {
